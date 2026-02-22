@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreScrumboardRequest;
+use App\Http\Requests\UpdateScrumboardRequest;
 use App\Models\Scrumboard;
 use GuzzleHttp\Psr7\Query;
 use Illuminate\Http\Request;
@@ -40,7 +41,7 @@ class ScrumboardController extends Controller
      */
     public function show($id)
     {
-        Log::info('SHOW HIT', [$id]);
+
         $board = Scrumboard::findOrFail($id);
 
         return response()->json($board);
@@ -50,16 +51,26 @@ class ScrumboardController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateScrumboardRequest $request, Scrumboard $scrumboard)
     {
-        //
+        $scrumboard->update($request->validated());
+
+        return response()->json([
+            'data' => $scrumboard,
+            'message' => 'Board updated'
+        ]);
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Scrumboard $scrumboard)
     {
-        //
+        $scrumboard->delete();
+
+        return response()->json([
+            'message' => 'Board deleted'
+        ]);
     }
 }
