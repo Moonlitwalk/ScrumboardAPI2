@@ -1,0 +1,17 @@
+{
+    "name": "Laravel DevContainer",
+
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "20"
+        }
+    },
+
+    "postCreateCommand": "composer install && npm install",
+
+    "forwardPorts": [8000, 5173]
+}
