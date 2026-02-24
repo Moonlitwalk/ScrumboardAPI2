@@ -1,17 +1,17 @@
 {
-    "name": "Laravel DevContainer",
+  "name": "Laravel DevContainer",
 
-    "build": {
-        "dockerfile": "Dockerfile"
-    },
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/ScrumboardAPI2",
 
-    "features": {
-        "ghcr.io/devcontainers/features/node:1": {
-            "version": "20"
-        }
-    },
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    }
+  },
 
-    "postCreateCommand": "composer install && npm install",
+  "postCreateCommand": "composer install && npm install",
 
-    "forwardPorts": [8000, 5173]
+  "forwardPorts": [8000, 5173, 3306]
 }
