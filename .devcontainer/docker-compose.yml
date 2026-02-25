@@ -1,10 +1,10 @@
 services:
   app:
     build:
-      context: ..
-      dockerfile: .devcontainer/Dockerfile
+      context: .
+      dockerfile: Dockerfile
     volumes:
-      - ..:/workspaces/ScrumboardAPI2:cached
+      - .:/workspaces/ScrumboardAPI2:cached
     depends_on:
       - mysql
 
