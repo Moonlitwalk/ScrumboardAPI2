@@ -56,8 +56,8 @@ class ScrumboardController extends Controller
         $scrumboard->update($request->validated());
 
         return response()->json([
+            'message' => 'Board updated successfully',
             'data' => $scrumboard,
-            'message' => 'Board updated'
         ]);
 
     }
