@@ -56,7 +56,7 @@ class ScrumboardController extends Controller
         $scrumboard->update($request->validated());
 
         return response()->json([
-            'message' => 'Board updated successfully',
+            'message' => 'Board updated successfully!',
             'data' => $scrumboard,
         ]);
 
@@ -70,7 +70,7 @@ class ScrumboardController extends Controller
         $scrumboard->delete();
 
         return response()->json([
-            'message' => 'Board deleted'
+            'message' => 'Board deleted!'
         ]);
     }
 }
