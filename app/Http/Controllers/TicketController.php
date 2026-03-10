@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreTicketReqest;
+use App\Http\Requests\StoreTicketRequest;
 use App\Http\Requests\UpdateTicketRequest;
 use Illuminate\Http\Request;
 use App\Models\Ticket;
@@ -18,7 +18,7 @@ class TicketController extends Controller
         return response()->json($tickets);
     }
 
-    public function store(StoreTicketReqest $request)
+    public function store(StoreTicketRequest $request)
     {
         $data = $request->validated();
 

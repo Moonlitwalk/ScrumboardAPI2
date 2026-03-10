@@ -4,14 +4,15 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreTicketReqest extends FormRequest
+
+class StoreTicketRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,11 @@ class StoreTicketReqest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+           'scrumboard_id' =>'integer|required|exists:scrumboards,id',
+            'title' => 'string|required|max:255',
+            'description' =>'string|required',
+            'owner' => 'string|required',
+            'type' => 'string|required|in:service_request,incident,change_request',
         ];
     }
 }

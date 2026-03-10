@@ -11,6 +11,7 @@ class Ticket extends Model
         'description',
         'owner',
         'priority',
+        'scrumboard_id',
         'title',
         'type',
 

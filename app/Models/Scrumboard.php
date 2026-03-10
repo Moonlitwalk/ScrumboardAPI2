@@ -12,7 +12,7 @@ class Scrumboard extends Model
         'title',
     ];
 
-    public function ticket()
+    public function tickets()
     {
         return $this->hasMany(Ticket::class);
     }

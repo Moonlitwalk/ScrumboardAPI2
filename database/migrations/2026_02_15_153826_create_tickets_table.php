@@ -12,16 +12,17 @@ return new class extends Migration {
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('scrumboard_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
             $table->string('title');
             $table->text('description');
             //TODO: change owner later to real user relatio
             $table->string('owner');
-            $table->integer('assignee');
-            $table->string('status');
-            $table->string('priority');
+            $table->integer('assignee')->nullable();
+            $table->string('status')->default('open');
+            $table->string('priority')->nullable();
             $table->string('type');
-
+            
         });
     }
 
