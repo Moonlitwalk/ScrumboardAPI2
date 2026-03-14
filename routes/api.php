@@ -17,8 +17,9 @@ Route::get('boards/{scrumboard}/tickets/{ticket}', [ScrumboardController::class,
 //tickets
 Route::get('/tickets', [TicketController::class, 'index']);
 Route::get('/tickets/{id}', [TicketController::class, 'show']);
-Route::post('/new_ticket', [TicketController::class, 'store']);
+//Route::post('/new_ticket', [TicketController::class, 'store']);
 Route::put('/tickets/{id}', [TicketController::class, 'update']);
 Route::delete('/tickets/{id}', [TicketController::class, 'destroy']);
-
+//tickets nested
+Route::post('/boards/{scrumboard}/tickets/new', [TicketController::class, 'store']);
 

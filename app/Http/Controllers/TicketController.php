@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTicketRequest;
 use App\Http\Requests\UpdateTicketRequest;
 use Illuminate\Http\Request;
-use App\Models\Ticket;
+use App\Models\{Scrumboard, Ticket};
 
 class TicketController extends Controller
 {
@@ -20,6 +20,7 @@ class TicketController extends Controller
 
     public function store(StoreTicketRequest $request)
     {
+        // if() for checking if a model really exists in DB ? i would think not needed since you cannot create a ticket without sending a board id.
         $data = $request->validated();
 
         $ticket = Ticket::create($data);
