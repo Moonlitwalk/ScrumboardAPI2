@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreScrumboardRequest;
 use App\Http\Requests\UpdateScrumboardRequest;
 use App\Models\Scrumboard;
+use App\Models\Ticket;
 use GuzzleHttp\Psr7\Query;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -42,7 +43,7 @@ class ScrumboardController extends Controller
     public function show($id)
     {
 
-        $board = Scrumboard::findOrFail($id);
+        $board = Scrumboard::with('tickets')->findOrFail($id);
 
         return response()->json($board);
 
