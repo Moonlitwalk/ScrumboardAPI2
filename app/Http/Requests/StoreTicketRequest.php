@@ -23,7 +23,6 @@ class StoreTicketRequest extends FormRequest
     public function rules(): array
     {
         return [
-           'scrumboard_id' =>'integer|exists:scrumboards,id',
             'title' => 'string|required|max:255',
             'description' =>'string|required',
             'owner' => 'string|required',

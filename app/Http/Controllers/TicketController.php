@@ -18,12 +18,12 @@ class TicketController extends Controller
         return response()->json($tickets);
     }
 
-    public function store(StoreTicketRequest $request)
+    public function store(Scrumboard $scrumboard, StoreTicketRequest $request)
     {
         // if() for checking if a model really exists in DB ? i would think not needed since you cannot create a ticket without sending a board id.
         $data = $request->validated();
 
-        $ticket = Ticket::create($data);
+        $ticket=$scrumboard->tickets()->create($data);
 
         return response()->json([
             'data' => $ticket->id,
