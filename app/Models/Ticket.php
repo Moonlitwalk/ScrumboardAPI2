@@ -14,6 +14,7 @@ class Ticket extends Model
         'scrumboard_id',
         'title',
         'type',
+        'status',
 
 
     ];

@@ -23,7 +23,7 @@ class TicketController extends Controller
         // if() for checking if a model really exists in DB ? i would think not needed since you cannot create a ticket without sending a board id.
         $data = $request->validated();
 
-        $ticket=$scrumboard->tickets()->create($data);
+        $ticket = $scrumboard->tickets()->create($data);
 
         return response()->json([
             'data' => $ticket->id,
@@ -61,6 +61,11 @@ class TicketController extends Controller
         return response()->json([
             'message' => 'Ticket deleted!',
         ]);
+    }
+
+    public function changeTicketStatus(Ticket $ticket)
+    {
+
     }
 
 }
